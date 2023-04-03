@@ -1,6 +1,6 @@
 import { TEST } from "../actionTypes/actionTypes"
 
-const test = () => {
+export const test = () => {
     return {
         type: TEST
     }
