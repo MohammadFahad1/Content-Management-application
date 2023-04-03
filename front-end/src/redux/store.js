@@ -1,4 +1,4 @@
-import { composeWithDevTools } from "@redux-devtools/extension/lib/types/logOnly";
+import { composeWithDevTools } from "@redux-devtools/extension";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers/rootReducer";
 const { createStore, applyMiddleware } = require("redux");

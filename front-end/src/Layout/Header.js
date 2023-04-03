@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import { themeChange } from 'theme-change'
 import { FaSun, FaMoon } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 const Header = () => {
     const [theme, setTheme] = useState('cupcake')
@@ -11,6 +12,9 @@ const Header = () => {
         themeChange(false)
         setTheme(localStorage.getItem('theme'))
     }, [theme])
+
+    const store = useSelector(state => state)
+    console.log(store);
 
     const navItems = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -39,9 +43,9 @@ const Header = () => {
                 <div className="navbar-end">
                     {
                         theme === 'light' ?
-                            <button className='btn' data-set-theme="dark" data-act-class="ACTIVECLASS" onClick={() => setTheme('dark')}>{FaMoon} Night</button>
+                            <button className='btn text-md rounded-full' data-set-theme="dark" data-act-class="ACTIVECLASS" onClick={() => setTheme('dark')}><FaMoon /></button>
                             :
-                            <button className='btn btn-primary' data-set-theme="light" data-act-class="ACTIVECLASS" onClick={() => setTheme('light')}>{FaSun} Day</button>
+                            <button className='btn btn-primary rounded-full' data-set-theme="light" data-act-class="ACTIVECLASS" onClick={() => setTheme('light')}><FaSun /></button>
                     }
                 </div>
             </div>
